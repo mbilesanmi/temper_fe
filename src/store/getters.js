@@ -1,1 +1,5 @@
-export default {};
+export default {
+  displayPosts({ posts }) {
+    return posts.slice(0, 5);
+  }
+};
