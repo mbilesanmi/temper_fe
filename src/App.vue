@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ListWrapper msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import ListWrapper from "./components/ListWrapper.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    ListWrapper
   }
 };
 </script>
