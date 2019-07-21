@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { shallowMount } from "@vue/test-utils";
-import PostList from "@/components/PostList.vue";
+import PostList from "../../src/components/PostList.vue";
 
 Vue.use(Vuex);
 
