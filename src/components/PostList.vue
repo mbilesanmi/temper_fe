@@ -17,6 +17,7 @@
           <i
             v-if="posts && index < posts.length - 1"
             class="moveDown fas fa-angle-down"
+            @click="moveDown(index, data.id)"
           ></i>
         </div>
       </div>
@@ -39,6 +40,9 @@ export default {
   methods: {
     moveUp(index, id) {
       this.$store.dispatch("moveUp", { index, id });
+    },
+    moveDown(index, id) {
+      this.$store.dispatch("moveDown", { index, id });
     }
   }
 };

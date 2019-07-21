@@ -21,3 +21,14 @@ test("moveUp commits setMessage with post move history", async () => {
   await actions.moveUp({ commit, state }, { index: 1, id: 2 });
   expect(commit).toHaveBeenCalledWith("setMessage", [2, 1, 0]);
 });
+
+test("moveDown commits posts returned by api method", async () => {
+  const state = {
+    messages: [],
+    posts: [1, 2, 3]
+  };
+  fetchData.mockResolvedValue([1, 2, 3]);
+  const commit = jest.fn();
+  await actions.moveDown({ commit, state }, { index: 1, id: 2 });
+  expect(commit).toHaveBeenCalledWith("setMessage", [2, 1, 2]);
+});

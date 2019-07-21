@@ -89,4 +89,23 @@ describe("PostList.vue", () => {
       id: 2
     });
   });
+
+  it("dispatches an action when moveDown button is clicked", () => {
+    const mockStore = {
+      ...store,
+      dispatch: jest.fn()
+    };
+
+    const wrapper = shallowMount(PostList, {
+      mocks: {
+        $store: mockStore
+      }
+    });
+
+    wrapper.find(".moveDown").trigger("click");
+    expect(mockStore.dispatch).toHaveBeenCalledWith("moveDown", {
+      index: 0,
+      id: 1
+    });
+  });
 });
