@@ -6,12 +6,13 @@
       </h3>
       <ul id="msgList" class="rounded overflow-hidden shadow-lg p-4">
         <transition-group
-          enter-active-class="animated bounceInDown"
+          enter-active-class="animated bounceInUp"
           leave-active-class="animated bounceOutRight"
         >
+          // eslint-disable-next-line
           <li
             v-for="(msg, index) in messages"
-            :key="index + '-' + msg[0]"
+            :key="index"
             class="msg block text-gray-700 bg-white flex justify-between px-4 py-4 border-b items-center"
           >
             <span>
@@ -47,7 +48,7 @@ export default {
 </script>
 
 <style>
-@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css";
 
 @keyframes bounce-in {
   0% {

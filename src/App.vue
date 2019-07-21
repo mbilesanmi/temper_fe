@@ -26,7 +26,8 @@ body {
     rgba(100, 87, 181, 1) 24%,
     rgba(246, 246, 246, 1) 24%,
     rgba(246, 246, 246, 1) 100%
-  );
-  height: 100vh;
+  ) no-repeat;
+  background-attachment: fixed;
+  height: 100%;
 }
 </style>
