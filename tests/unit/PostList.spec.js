@@ -46,4 +46,28 @@ describe("PostList.vue", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
     expect(actions.getPosts.mock.calls).toHaveLength(1);
   });
+
+  it("renders posts in the #postList and #post div", () => {
+    const wrapper = shallowMount(PostList, {
+      store
+    });
+    expect(wrapper.contains("#postList")).toBe(true);
+    expect(wrapper.findAll("#post").length).toBe(3);
+  });
+
+  it("renders post with moveUp buttons", () => {
+    const wrapper = shallowMount(PostList, {
+      store
+    });
+    expect(wrapper.contains(".moveUp")).toBe(true);
+    expect(wrapper.findAll(".moveUp").length).toBe(2);
+  });
+
+  it("renders post with moveDown buttons", () => {
+    const wrapper = shallowMount(PostList, {
+      store
+    });
+    expect(wrapper.contains(".moveDown")).toBe(true);
+    expect(wrapper.findAll(".moveDown").length).toBe(2);
+  });
 });
