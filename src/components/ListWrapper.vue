@@ -1,10 +1,10 @@
 <template>
   <div class="container mx-auto bg-green">
-    <div class="flex mb-4">
-      <div class="w-1/2 h-12">
+    <div class="flex justify-around wrapper">
+      <div class="sm:w-full md:w-5/12 h-auto mx-2 mb-3">
         <PostList />
       </div>
-      <div class="w-1/2 h-12">
+      <div class="sm:w-full md:w-5/12 h-auto mx-2 mb-3">
         <TimeTravel />
       </div>
     </div>
@@ -22,3 +22,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.wrapper {
+  display: flex;
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+  }
+}
+</style>

@@ -54,4 +54,20 @@ describe("TimeTravel.vue", () => {
     expect(wrapper.contains(".timeTravel")).toBe(true);
     expect(wrapper.findAll(".timeTravel").length).toBe(2);
   });
+
+  it("dispatches an action when timeTravel button is clicked", () => {
+    const mockStore = {
+      ...store,
+      dispatch: jest.fn()
+    };
+
+    const wrapper = shallowMount(TimeTravel, {
+      mocks: {
+        $store: mockStore
+      }
+    });
+
+    wrapper.find(".timeTravel").trigger("click");
+    expect(mockStore.dispatch).toHaveBeenCalledWith("timeTravel", { index: 0 });
+  });
 });

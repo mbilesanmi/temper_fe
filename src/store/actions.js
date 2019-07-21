@@ -17,5 +17,16 @@ export default {
     state.posts.splice(index + 2, 1);
     const msg = [id, index, index + 1];
     commit("setMessage", msg);
+  },
+
+  timeTravel({ commit, state }, { index }) {
+    const msgs = state.messages;
+    let i = 0;
+    while (i < index) {
+      const msg = msgs[i];
+      commit("timeTravelState", { i, msg });
+      i++;
+    }
+    msgs.splice(0, index);
   }
 };

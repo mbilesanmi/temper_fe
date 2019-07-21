@@ -1,10 +1,10 @@
 <template>
-  <div class="max-w-lg rounded overflow-hidden shadow-lg">
-    <div class="bg-gray-100 p-4">
-      <div>
+  <div class="w-full rounded overflow-hidden border border-gray-200 shadow-lg">
+    <div class="bg-gray-200">
+      <h3 class="font-bold text-lg mb-4 p-4 bg-white text-gray-700">
         List of actions committed
-      </div>
-      <ul id="msgList" class="max-w-lg rounded overflow-hidden shadow-lg">
+      </h3>
+      <ul id="msgList" class="rounded overflow-hidden shadow-lg p-4">
         <transition-group
           enter-active-class="animated bounceInDown"
           leave-active-class="animated bounceOutRight"
@@ -18,6 +18,7 @@
               Moved post {{ msg[0] }} from index {{ msg[1] }} to {{ msg[2] }}
             </span>
             <button
+              @click="timeTravel(index)"
               class="timeTravel bg-green-400 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded"
             >
               Time travel
@@ -34,6 +35,12 @@ export default {
   computed: {
     messages() {
       return this.$store.getters.displayMsgs;
+    }
+  },
+
+  methods: {
+    timeTravel(index) {
+      this.$store.dispatch("timeTravel", { index });
     }
   }
 };

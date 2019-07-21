@@ -1,10 +1,10 @@
 <template>
-  <div id="postList" class="max-w-lg rounded overflow-hidden text-left">
-    <h3 class="font-bold text-lg mb-2">Sortable Post List</h3>
+  <div id="postList" class="w-full rounded overflow-hidden text-left">
+    <h3 class="font-bold text-lg text-white mb-2">Sortable Post List</h3>
     <div
       v-for="(data, index) in posts"
       :key="index"
-      class="post max-w-lg rounded shadow border border-gray-200 my-6"
+      class="post w-full p-2 rounded shadow border border-gray-200 bg-white my-6"
     >
       <div class="block text-gray-700 flex justify-between px-4 py-4">
         <div class="text-md">{{ data.title }}</div>
@@ -41,6 +41,7 @@ export default {
     moveUp(index, id) {
       this.$store.dispatch("moveUp", { index, id });
     },
+
     moveDown(index, id) {
       this.$store.dispatch("moveDown", { index, id });
     }
