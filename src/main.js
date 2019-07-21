@@ -1,8 +1,15 @@
 import Vue from "vue";
+import Vuex from "vuex";
 import App from "./App.vue";
-import store from "./store";
+import createStoreConfig from "./store/createStoreConfig";
 
 Vue.config.productionTip = false;
+
+Vue.use(Vuex);
+
+const storeConfig = createStoreConfig();
+
+const store = new Vuex.Store(storeConfig);
 
 new Vue({
   store,
